@@ -329,112 +329,131 @@
 
 
       <script>
-        function formatRupiah(input) {
-          let value = input.value.replace(/[^0-9]/g, "");
-          if (value) {
-            input.value = "Rp " + new Intl.NumberFormat("id-ID").format(value);
-          } else {
-            input.value = "";
-          }
-        }
-      
-        var uptarg = document.getElementById('drag-drop-area');
-        if (uptarg) {
-          var uppy = Uppy.Core().use(Uppy.Dashboard, {
-            inline: true,
-            target: uptarg,
-            proudlyDisplayPoweredByUppy: false,
-            theme: 'dark',
-            width: 770,
-            height: 210,
-            plugins: ['Webcam']
-          }).use(Uppy.Tus, {
-            endpoint: 'https://master.tus.io/files/'
-          });
-          
-          uppy.on('complete', (result) => {
-            console.log('Upload complete! We’ve uploaded these files:', result.successful);
-            result.successful.forEach(file => {
-              tambahData(file);
-            });
-          });
-        }
-      
-        function tambahData(file = null) {
-          var nama = document.getElementById("inputNama").value;
-          var formulir = document.getElementById("inputState").value;
-          var ruangan = document.getElementById("inputRuangan").value;
-          var jenis = document.getElementById("inputJenis").value;
-          var jumlah = document.getElementById("inputJumlah").value;
-          var satuan = document.getElementById("inputSatuan").value;
-          var harga = document.getElementById("inputHarga").value;
-          var cito = "Tidak";  
-          
-          if (formulir === "Pilihan..." || ruangan === "Pilihan..." || jenis === "" || jumlah === "" || satuan === "Pilihan..." || harga === "") {
-            alert("Mohon isi semua field sebelum menambahkan data.");
-            return;
-          }
-      
-          var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
-          var baris = tabel.insertRow();
-          
-          var dataDukung = file ? `<a href='${file.uploadURL}' target='_blank'>${file.name}</a>` : "Tidak ada";
-          
-          baris.innerHTML = `<td>${nama}</td>
-                             <td>${formulir}</td>
-                             <td>${ruangan}</td>
-                             <td>${jenis}</td>
-                             <td>${jumlah}</td>
-                             <td>${satuan}</td>
-                             <td>${harga}</td>
-                             <td>${dataDukung}</td>
-                             <td>${cito}</td>
-                             <td><button class='btn btn-danger btn-sm' onclick='hapusBaris(this)'>Hapus</button></td>`;
-          
-          document.getElementById("permintaanForm").reset();
-        }
-      
-        function hapusBaris(button) {
-          var baris = button.parentNode.parentNode;
-          baris.parentNode.removeChild(baris);
-        }
-      
-        function toggleCito() {
-          var isCito = document.getElementById("checkCito").checked;
-          var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
-      
-          for (var i = 0; i < tabel.rows.length; i++) {
-            var row = tabel.rows[i];
-            row.cells[8].innerText = isCito ? "Cito" : "Tidak";
-          }
-        }
-      
-        function simpanData() {
-          var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
-          if (tabel.rows.length === 0) {
-            alert("Tidak ada data untuk disimpan.");
-            return;
-          }
-          
-          var data = [];
-          for (var i = 0; i < tabel.rows.length; i++) {
-            var row = tabel.rows[i];
-            var item = {
-              nama: row.cells[0].innerText,
-              formulir: row.cells[1].innerText,
-              ruangan: row.cells[2].innerText,
-              jenis: row.cells[3].innerText,
-              jumlah: row.cells[4].innerText,
-              satuan: row.cells[5].innerText,
-              harga: row.cells[6].innerText,
-              dataDukung: row.cells[7].innerText,
-              cito: row.cells[8].innerText
-            };
-            data.push(item);
-          }
-          console.log("Data yang akan disimpan:", data);
-          alert("Data berhasil disimpan (lihat console untuk hasil).");
-        }
+function formatRupiah(input) {
+  let value = input.value.replace(/[^0-9]/g, "");
+  if (value) {
+    input.value = "Rp " + new Intl.NumberFormat("id-ID").format(value);
+  } else {
+    input.value = "";
+  }
+}
+
+var uptarg = document.getElementById('drag-drop-area');
+if (uptarg) {
+  var uppy = Uppy.Core().use(Uppy.Dashboard, {
+    inline: true,
+    target: uptarg,
+    proudlyDisplayPoweredByUppy: false,
+    theme: 'dark',
+    width: 770,
+    height: 210,
+    plugins: ['Webcam']
+  }).use(Uppy.Tus, {
+    endpoint: 'https://rsupbenmboi.com/doc/'
+  });
+
+  uppy.on('complete', (result) => {
+    console.log('Upload complete! Files:', result.successful);
+    result.successful.forEach(file => {
+      tambahData(file);
+    });
+  });
+}
+
+function tambahData(file = null) {
+  var nama = document.getElementById("inputNama").value;
+  var formulir = document.getElementById("inputState").value;
+  var ruangan = document.getElementById("inputRuangan").value;
+  var jenis = document.getElementById("inputJenis").value;
+  var jumlah = document.getElementById("inputJumlah").value;
+  var satuan = document.getElementById("inputSatuan").value;
+  var harga = document.getElementById("inputHarga").value;
+  var cito = "Tidak";
+  
+  if (formulir === "Pilihan..." || ruangan === "Pilihan..." || jenis === "" || jumlah === "" || satuan === "Pilihan..." || harga === "") {
+    alert("Mohon isi semua field sebelum menambahkan data.");
+    return;
+  }
+
+  var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
+  var baris = tabel.insertRow();
+  
+  var dataDukung = file ? `<a href='${file.uploadURL}' target='_blank'>${file.name}</a>` : "Tidak ada";
+  
+  baris.innerHTML = `<td>${nama}</td>
+                     <td>${formulir}</td>
+                     <td>${ruangan}</td>
+                     <td>${jenis}</td>
+                     <td>${jumlah}</td>
+                     <td>${satuan}</td>
+                     <td>${harga}</td>
+                     <td>${dataDukung}</td>
+                     <td>${cito}</td>
+                     <td><button class='btn btn-danger btn-sm' onclick='hapusBaris(this)'>Hapus</button></td>`;
+  
+  document.getElementById("permintaanForm").reset();
+}
+
+function hapusBaris(button) {
+  var baris = button.parentNode.parentNode;
+  baris.parentNode.removeChild(baris);
+}
+
+function toggleCito() {
+  var isCito = document.getElementById("checkCito").checked;
+  var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
+
+  for (var i = 0; i < tabel.rows.length; i++) {
+    var row = tabel.rows[i];
+    row.cells[8].innerText = isCito ? "Cito" : "Tidak";
+  }
+}
+
+function simpanData() {
+  var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
+  if (tabel.rows.length === 0) {
+    alert("Tidak ada data untuk disimpan.");
+    return;
+  }
+  
+  var formData = new FormData();
+  
+  for (var i = 0; i < tabel.rows.length; i++) {
+    var row = tabel.rows[i];
+    formData.append(`data[${i}][nama]`, row.cells[0].innerText);
+    formData.append(`data[${i}][formulir]`, row.cells[1].innerText);
+    formData.append(`data[${i}][ruangan]`, row.cells[2].innerText);
+    formData.append(`data[${i}][jenis]`, row.cells[3].innerText);
+    formData.append(`data[${i}][jumlah]`, row.cells[4].innerText);
+    formData.append(`data[${i}][satuan]`, row.cells[5].innerText);
+    formData.append(`data[${i}][harga]`, row.cells[6].innerText);
+    
+    var linkFile = row.cells[7].querySelector("a");
+    if (linkFile) {
+      formData.append(`data[${i}][dataDukung]`, linkFile.href);
+    } else {
+      formData.append(`data[${i}][dataDukung]`, "Tidak ada");
+    }
+    
+    formData.append(`data[${i}][cito]`, row.cells[8].innerText);
+  }
+
+  fetch('https://rsupbenmboi.com/doc/', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log("Data berhasil disimpan:", result);
+    alert("Data berhasil disimpan.");
+  })
+  .catch(error => {
+    console.error("Terjadi kesalahan saat menyimpan data:", error);
+    alert("Gagal menyimpan data.");
+  });
+}
+
+
       </script>
 
 
