@@ -1,40 +1,45 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="favicon.ico" />
     <title>Monitoring F1 RSUP Ben Mboi</title>
     <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="css/simplebar.css">
+    <link rel="stylesheet" href="css/simplebar.css" />
     <!-- Fonts CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
     <!-- Icons CSS -->
-    <link rel="stylesheet" href="css/feather.css">
-    <link rel="stylesheet" href="css/select2.css">
-    <link rel="stylesheet" href="css/dropzone.css">
-    <link rel="stylesheet" href="css/uppy.min.css">
-    <link rel="stylesheet" href="css/jquery.steps.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/quill.snow.css">
+    <link rel="stylesheet" href="css/feather.css" />
+    <link rel="stylesheet" href="css/select2.css" />
+    <link rel="stylesheet" href="css/dropzone.css" />
+    <link rel="stylesheet" href="css/uppy.min.css" />
+    <link rel="stylesheet" href="css/jquery.steps.css" />
+    <link rel="stylesheet" href="css/jquery.timepicker.css" />
+    <link rel="stylesheet" href="css/quill.snow.css" />
     <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="css/daterangepicker.css">
+    <link rel="stylesheet" href="css/daterangepicker.css" />
     <!-- App CSS -->
-    <link rel="stylesheet" href="css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="css/app-light.css" id="lightTheme" />
+    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled />
   </head>
-  <body class="vertical  light  ">
+  <body class="vertical light">
     <div class="wrapper">
       <nav class="topnav navbar navbar-light">
         <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
           <i class="fe fe-menu navbar-toggler-icon"></i>
         </button>
         <form class="form-inline mr-auto searchform text-muted">
-          <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Cari Dokumen F1 " aria-label="Search">
+          <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" id="search" type="text" placeholder="Cari Dokumen F1 " aria-label="Search" onkeyup="cariDokumen()" />
         </form>
         <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
+              <i class="fe fe-sun fe-16"></i>
+            </a>
+          </li>
           <li class="nav-item nav-notif">
             <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
               <span class="fe fe-bell fe-16"></span>
@@ -44,8 +49,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
-                <img src="./assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
-                <span class="ml-1 item-text">Lenny MC</span>
+                <img src="./assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle" />
+                <span class="ml-1 item-text">User Pengguna</span>
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -60,13 +65,11 @@
         </a>
         <nav class="vertnav navbar navbar-light">
           <!-- nav bar -->
-          
-            <div class="w-100 mb-4 d-flex">
-              <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="f1.html">
-                <img src="./assets/images/kemkes.png" alt="Logo" class="navbar-brand-img brand-sm">
-              </a>
-            </div>
-
+          <div class="w-100 mb-4 d-flex">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="dashboard_pengguna_f1.html">
+              <img src="./assets/images/kemkes.png" alt="Logo" class="navbar-brand-img brand-sm" />
+            </a>
+          </div>
           <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item">
               <a href="dashboard_pengguna_f1.html" class="nav-link">
@@ -74,32 +77,29 @@
                 <span class="ml-3 item-text">Dashboard</span>
               </a>
             </li>
-          </ul>                   
-          <p class="text-muted nav-heading mt-4 mb-1">
-            <span>Formulir F1 RSBM</span>
-          </p>
+          </ul>
           <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-              <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+            <li class="nav-item">
+              <a href="form_pengguna_f1.html" class="nav-link">
                 <i class="fe fe-credit-card fe-16"></i>
-                <span class="ml-3 item-text">Permintaan F1 RSBM</span>
+                <span class="ml-3 item-text">Form Permintaan F1</span>
               </a>
-              <ul class="collapse list-unstyled pl-4 w-100" id="forms">
-                <li class="nav-item">
-                  <a class="nav-link pl-3" href="form_pengguna_f1.html"><span class="ml-1 item-text">Form F1</span></a>
-                </li>
-              </ul>
             </li>
           </ul>
           <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-              <a href="#profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+            <li class="nav-item">
+              <a href="verifikasi_pengguna_f1.html" class="nav-link">
+                <i class="fe fe-file-plus fe-16"></i>
+                <span class="ml-3 item-text">Lembar Monitoring F1</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item">
+              <a href="profil_user.html" class="nav-link">
                 <i class="fe fe-user fe-16"></i>
                 <span class="ml-3 item-text">Profile</span>
               </a>
-              <ul class="collapse list-unstyled pl-4 w-100" id="profile">
-                <a class="nav-link pl-3" href="profil_user.html"><span class="ml-1">Overview</span></a>
-              </ul>
             </li>
           </ul>
         </nav>
@@ -108,7 +108,7 @@
         <div class="row justify-content-center">
           <div class="col-12">
             <h2 class="page-title">Form Permintaan</h2>
-            <p class="text-muted">Silahkan masukan data pengajuan F1 anda untuk dilakukan pengadaan.</p>
+            <p class="text-muted">Silahkan masukkan data pengajuan F1 Anda untuk dilakukan pengadaan.</p>
             <div class="row">
               <div class="col-md-12">
                 <div class="card shadow mb-4">
@@ -116,107 +116,63 @@
                     <strong class="card-title">Form Permintaan</strong>
                   </div>
                   <div class="card-body">
-                    <form id="permintaanForm">
-                      <div class="form-row">
-                        <div class="form-group col-md-5">
-                          <label for="inputNama">Nama Jenis Pengadaan</label>
-                          <input type="text" class="form-control" id="inputNama">
-                          <small id="namaHelp" class="form-text text-danger">Catatan: nama jenis pengadaan cukup 1x diisi.</small>
-                        </div>                        
+                    <form id="formInput">
+                      <div class="form-row d-flex align-items-center">
                         <div class="form-group col-md-4">
-                          <label for="inputState">Jenis Formulir Pengadaan</label>
-                          <select id="inputState" class="form-control">
-                            <option selected>Pilihan...</option>
-                            <option>F1 Non Medis</option>
-                            <option>F1 Medis</option>
-                            <option>F1 Pelatihan</option>
+                          <label for="namaKegiatan">Nama Kegiatan:</label>
+                          <input type="text" class="form-control" id="namaKegiatan" required />
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="ruangan">Ruangan:</label>
+                          <select id="ruangan" class="form-control" required>
+                            <option value="">Pilih Ruangan</option>
+                            <option value="sirs">SIRS</option>
+                            <option value="tata usaha">Tata Usaha</option>
                           </select>
                         </div>
-                        <div class="form-group col-md-3">
-                          <label for="inputRuangan">Asal Ruangan</label>
-                          <select id="inputRuangan" class="form-control">
-                            <option selected>Pilihan...</option>
-                            <option>SIRS</option>
-                            <option>Laboratorium</option>
-                            <option>Ranap Lily</option>
+                        <div class="form-group col-md-4">
+                          <label for="jenisF1">Jenis F1:</label>
+                          <select id="jenisF1" class="form-control" required>
+                            <option value="">Pilih Jenis F1</option>
+                            <option value="non medis">Non Medis</option>
+                            <option value="medis">Medis</option>
                           </select>
                         </div>
                       </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-4">
-                          <label for="inputJenis">Jenis Kebutuhan</label>
-                          <input type="text" class="form-control" id="inputJenis">
-                        </div>
-                        <div class="form-group col-md-2">
-                          <label for="inputJumlah">Jumlah</label>
-                          <input type="number" class="form-control" id="inputJumlah" min="1">
-                        </div>
-                        <div class="form-group col-md-3">
-                          <label for="inputSatuan">Jenis Satuan</label>
-                          <select id="inputSatuan" class="form-control">
-                            <option selected>Pilihan...</option>
-                            <option>Unit</option>
-                            <option>Buah</option>
-                            <option>Paket</option>
-                          </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                          <label for="inputHarga">Harga/Biaya</label>
-                          <input type="text" class="form-control" id="inputHarga" oninput="formatRupiah(this)">
-                        </div>
-                        <div class="form-group col-md-6">
-                          <div class="card shadow mb-2">
-                            <div class="card-header">
-                              <strong>Upload Dokumen</strong>
-                            </div>
-                            <div class="card-body">
-                              <div id="drag-drop-area"></div>
-                            </div>
+                      <strong class="card-title">Jenis Permintaan </strong>
+                      <small class="card-title text-danger">( Wajib Memasukan 1 Rincian Permintaan )</small>
+                      <div id="turunanContainer" class="row g-2"></div>
+                      <button type="button" class="btn btn-success mt-2" onclick="tambahTurunan()">Tambah Rincian</button>
+                      <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="cito" />
+                        <label class="form-check-label" for="cito">Cito (Dokumen Mendesak)</label>
+                      </div>
+                      <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" id="enableUpload" onchange="toggleUpload()" />
+                        <label class="form-check-label" for="enableUpload">Upload Berkas</label>
+                      </div>
+                      <div id="uploadContainer" class="col-md-6 mt-3" style="display: none">
+                        <div class="card shadow mb-4">
+                          <div class="card-header">
+                            <strong>Upload Berkas F1</strong>
                           </div>
+                          <div class="card-body">
+                            <div id="drag-drop-area"></div>
+                          </div>
+                          <!-- .card-body -->
                         </div>
+                        <!-- .card -->
                       </div>
-                      <button type="button" class="btn btn-primary" onclick="tambahData()">Tambah</button>
+                      <!-- .col -->
+                      <button type="submit" class="btn btn-primary mt-3">Lanjutkan</button>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row mt-4">
-              <div class="col-md-12">
-                <div class="card shadow mb-4">
-                  <div class="card-header">
-                    <strong class="card-title">Data Permintaan</strong>
-                  </div>
-                  <div class="card-body">
-                    <div class="form-check mb-3">
-                      <input class="form-check-input" type="checkbox" id="checkCito" onchange="toggleCito()">
-                      <label class="form-check-label" for="checkCito">Tandai Semua Sebagai Cito</label>
-                    </div>
-                    <table class="table table-bordered" id="tabelPermintaan">
-                      <thead>
-                        <tr>
-                          <th>Nama Jenis Pengadaan</th>
-                          <th>Jenis Formulir Pengadaan</th>
-                          <th>Asal Ruangan</th>
-                          <th>Jenis Kebutuhan</th>
-                          <th>Jumlah</th>
-                          <th>Satuan</th>
-                          <th>Harga (Rp)</th>
-                          <th>Data Dukung</th>
-                          <th>Cito</th>
-                          <th>Aksi</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                    </table>
-                    <button class="btn btn-success mt-2 text-white" onclick="simpanData()">Simpan</button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-      </div> <!-- .container-fluid -->
+        </div>
+        <!-- .container-fluid -->
         <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -250,7 +206,8 @@
                         <small><strong>Pembelian Linen</strong></small>
                         <small class="badge badge-pill badge-light text-muted">1 Jam yang Lalu</small>
                       </div>
-                    </div> <!-- / .row -->
+                    </div>
+                    <!-- / .row -->
                   </div>
                   <div class="list-group-item bg-transparent">
                     <div class="row align-items-center">
@@ -259,8 +216,10 @@
                         <small class="badge badge-pill badge-light text-muted">1 Hari yang Lalu</small>
                       </div>
                     </div>
-                  </div> <!-- / .row -->
-                </div> <!-- / .list-group -->
+                  </div>
+                  <!-- / .row -->
+                </div>
+                <!-- / .list-group -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Hapus</button>
@@ -268,15 +227,17 @@
             </div>
           </div>
         </div>
-      </main> <!-- main -->
-    </div> <!-- .wrapper -->
+      </main>
+      <!-- main -->
+    </div>
+    <!-- .wrapper -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/moment.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/simplebar.min.js"></script>
-    <script src='js/daterangepicker.js'></script>
-    <script src='js/jquery.stickOnScroll.js'></script>
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/jquery.stickOnScroll.js"></script>
     <script src="js/tinycolor-min.js"></script>
     <script src="js/config.js"></script>
     <script src="js/d3.min.js"></script>
@@ -286,7 +247,6 @@
     <script src="js/datamaps.custom.js"></script>
     <script src="js/Chart.min.js"></script>
     <script>
-      /* defind global options */
       Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
       Chart.defaults.global.defaultFontColor = colors.mutedColor;
     </script>
@@ -294,192 +254,312 @@
     <script src="js/jquery.sparkline.min.js"></script>
     <script src="js/apexcharts.min.js"></script>
     <script src="js/apexcharts.custom.js"></script>
-    <script src='js/jquery.mask.min.js'></script>
-    <script src='js/select2.min.js'></script>
-    <script src='js/jquery.steps.min.js'></script>
-    <script src='js/jquery.validate.min.js'></script>
-    <script src='js/jquery.timepicker.js'></script>
-    <script src='js/dropzone.min.js'></script>
-    <script src='js/uppy.min.js'></script>
-    <script src='js/quill.min.js'></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/jquery.steps.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.timepicker.js"></script>
+    <script src="js/dropzone.min.js"></script>
+    <script src="js/uppy.min.js"></script>
+    <script src="js/quill.min.js"></script>
     <script src="js/apps.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-
-      function gtag()
-      {
+      function gtag() {
         dataLayer.push(arguments);
       }
-      gtag('js', new Date());
-      gtag('config', 'UA-56159088-1');
+      gtag("js", new Date());
+      gtag("config", "UA-56159088-1");
     </script>
     <script>
       setInterval(() => {
-        const dot = document.querySelector('.dot');
+        const dot = document.querySelector(".dot");
         if (dot) {
-          dot.style.visibility = dot.style.visibility === 'hidden' ? 'visible' : 'hidden';
+          dot.style.visibility = dot.style.visibility === "hidden" ? "visible" : "hidden";
         }
-      }, 500); // Berkedip setiap 0.5 detik
+      }, 500);
     </script>
-      
 
+    <script>
+      let uploadedFiles = [];
+      let formData = {};
 
-
-      <script>
-function formatRupiah(input) {
-  let value = input.value.replace(/[^0-9]/g, "");
-  if (value) {
-    input.value = "Rp " + new Intl.NumberFormat("id-ID").format(value);
-  } else {
-    input.value = "";
-  }
-}
-
-var uptarg = document.getElementById('drag-drop-area');
-if (uptarg) {
-  var uppy = Uppy.Core().use(Uppy.Dashboard, {
-    inline: true,
-    target: uptarg,
-    proudlyDisplayPoweredByUppy: false,
-    theme: 'dark',
-    width: 770,
-    height: 210,
-    plugins: ['Webcam']
-  }).use(Uppy.Tus, {
-    endpoint: 'https://rsupbenmboi.com/doc/'
-  });
-
-  uppy.on('complete', (result) => {
-    console.log('Upload complete! Files:', result.successful);
-    result.successful.forEach(file => {
-      tambahData(file);
-    });
-  });
-}
-
-function tambahData(file = null) {
-  var nama = document.getElementById("inputNama").value;
-  var formulir = document.getElementById("inputState").value;
-  var ruangan = document.getElementById("inputRuangan").value;
-  var jenis = document.getElementById("inputJenis").value;
-  var jumlah = document.getElementById("inputJumlah").value;
-  var satuan = document.getElementById("inputSatuan").value;
-  var harga = document.getElementById("inputHarga").value;
-  var cito = "Tidak";
-  
-  if (formulir === "Pilihan..." || ruangan === "Pilihan..." || jenis === "" || jumlah === "" || satuan === "Pilihan..." || harga === "") {
-    alert("Mohon isi semua field sebelum menambahkan data.");
-    return;
-  }
-
-  var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
-  var baris = tabel.insertRow();
-  
-  var dataDukung = file ? `<a href='${file.uploadURL}' target='_blank'>${file.name}</a>` : "Tidak ada";
-  
-  baris.innerHTML = `<td>${nama}</td>
-                     <td>${formulir}</td>
-                     <td>${ruangan}</td>
-                     <td>${jenis}</td>
-                     <td>${jumlah}</td>
-                     <td>${satuan}</td>
-                     <td>${harga}</td>
-                     <td>${dataDukung}</td>
-                     <td>${cito}</td>
-                     <td><button class='btn btn-danger btn-sm' onclick='hapusBaris(this)'>Hapus</button></td>`;
-  
-  document.getElementById("permintaanForm").reset();
-}
-
-function hapusBaris(button) {
-  var baris = button.parentNode.parentNode;
-  baris.parentNode.removeChild(baris);
-}
-
-function toggleCito() {
-  var isCito = document.getElementById("checkCito").checked;
-  var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
-
-  for (var i = 0; i < tabel.rows.length; i++) {
-    var row = tabel.rows[i];
-    row.cells[8].innerText = isCito ? "Cito" : "Tidak";
-  }
-}
-
-function simpanData() {
-  var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
-  if (tabel.rows.length === 0) {
-    alert("Tidak ada data untuk disimpan.");
-    return;
-  }
-  
-  var formData = new FormData();
-  
-  for (var i = 0; i < tabel.rows.length; i++) {
-    var row = tabel.rows[i];
-    formData.append(`data[${i}][nama]`, row.cells[0].innerText);
-    formData.append(`data[${i}][formulir]`, row.cells[1].innerText);
-    formData.append(`data[${i}][ruangan]`, row.cells[2].innerText);
-    formData.append(`data[${i}][jenis]`, row.cells[3].innerText);
-    formData.append(`data[${i}][jumlah]`, row.cells[4].innerText);
-    formData.append(`data[${i}][satuan]`, row.cells[5].innerText);
-    formData.append(`data[${i}][harga]`, row.cells[6].innerText);
-    
-    var linkFile = row.cells[7].querySelector("a");
-    if (linkFile) {
-      formData.append(`data[${i}][dataDukung]`, linkFile.href);
-    } else {
-      formData.append(`data[${i}][dataDukung]`, "Tidak ada");
-    }
-    
-    formData.append(`data[${i}][cito]`, row.cells[8].innerText);
-  }
-
-  fetch('https://rsupbenmboi.com/doc/', {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => response.json())
-  .then(result => {
-    console.log("Data berhasil disimpan:", result);
-    alert("Data berhasil disimpan.");
-  })
-  .catch(error => {
-    console.error("Terjadi kesalahan saat menyimpan data:", error);
-    alert("Gagal menyimpan data.");
-  });
-}
-
-
-      </script>
-
-
-
-            <script>document.addEventListener('DOMContentLoaded', function() {
-              // Cari semua elemen tr di halaman
-              const rows = document.querySelectorAll('tr');
-            
-              rows.forEach(row => {
-                // Cari elemen span dengan kelas bg-danger dalam baris ini
-                const redDot = row.querySelector('.bg-danger');
-            
-                if (redDot) {
-                  // Jika ada elemen .bg-danger, tambahkan kelas blinking pada <tr>
-                  row.classList.add('blinking');
-                }
+      function toggleUpload() {
+        const uploadContainer = document.getElementById("uploadContainer");
+        uploadContainer.style.display = document.getElementById("enableUpload").checked ? "block" : "none";
+        if (document.getElementById("enableUpload").checked && !window.uppy) {
+          let uptarg = document.getElementById("drag-drop-area");
+          if (uptarg) {
+            window.uppy = Uppy.Core()
+              .use(Uppy.Dashboard, {
+                inline: true,
+                target: uptarg,
+                proudlyDisplayPoweredByUppy: false,
+                theme: "dark",
+                width: 770,
+                height: 210,
+                plugins: ["Webcam"],
+              })
+              .use(Uppy.Tus, {
+                endpoint: "https://master.tus.io/files/",
               });
+            window.uppy.on("file-added", (file) => {
+              console.log("File ditambahkan:", file.name);
+              uploadedFiles.push(file.name);
             });
-            
-            // Fungsi untuk menghentikan kedip (opsional)
-            function stopBlinking() {
-              const rows = document.querySelectorAll('tr.blinking');
-              rows.forEach(row => {
-                row.classList.remove('blinking');
-              });
-            }
-            </script>
+            window.uppy.on("complete", (result) => {
+              console.log("Upload complete! We’ve uploaded these files:", result.successful);
+            });
+          }
+        }
+      }
+
+      function tambahTurunan() {
+        let container = document.getElementById("turunanContainer");
+        let div = document.createElement("div");
+        div.classList.add("col-12", "d-flex", "gap-3", "align-items-center");
+        div.innerHTML = `
+      <input type="text" placeholder="Rincian" class="form-control rincian" required>
+      <input type="number" placeholder="Kuantitas" class="form-control kuantitas" required>
+      <select class="form-control satuan" required>
+        <option value="">Pilih Satuan</option>
+        <option value="unit">Unit</option>
+        <option value="buah">Buah</option>
+        <option value="paket">Paket</option>
+      </select>
+      <input type="text" placeholder="Biaya" class="form-control biaya" required>
+      <button type="button" class="btn btn-danger" onclick="hapusTurunan(this)">Hapus</button>
+    `;
+        container.appendChild(div);
+        let biayaInput = div.querySelector(".biaya");
+        biayaInput.addEventListener("input", function () {
+          formatRupiah(biayaInput);
+        });
+      }
+
+      function hapusTurunan(button) {
+        button.parentElement.remove();
+      }
+
+      function formatRupiah(input) {
+        let angka = input.value.replace(/[^0-9]/g, "");
+        input.value = angka ? "Rp " + new Intl.NumberFormat("id-ID", { maximumFractionDigits: 0 }).format(angka) : "";
+      }
+
+      // Simpan dan validasi
+      document.getElementById("formInput").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let namaKegiatan = document.getElementById("namaKegiatan").value;
+        let ruangan = document.getElementById("ruangan").value;
+        let jenisF1 = document.getElementById("jenisF1").value;
+        let cito = document.getElementById("cito").checked;
+
+        let turunanData = Array.from(document.querySelectorAll("#turunanContainer > div"), (div) => ({
+          rincian: div.querySelector(".rincian").value,
+          kuantitas: div.querySelector(".kuantitas").value,
+          satuan: div.querySelector(".satuan").value,
+          biaya: div.querySelector(".biaya").value.replace(/[^0-9]/g, ""),
+        }));
+
+        formData = { namaKegiatan, ruangan, jenisF1, cito, turunanData, uploadedFiles };
+
+        // Menampilkan wizard untuk validasi data sebelum disimpan
+        showValidationWizard(formData);
+      });
+
+      function showValidationWizard(data) {
+        let totalBiaya = 0;
+        let totalKuantitas = 0;
+
+        let validationContent = `
+<div class="row align-items-center mb-4"></div>
+    <div class="card shadow">
+        <div class="card-body p-5">
+            <div class="text-center mb-4">
+                <img src="./assets/images/logo-kemenkes.png" alt="Kemenkes Logo" class="img-fluid" style="max-width: 100%; height: auto" />
+            </div>
+
+            <!-- Rencana Anggaran Biaya Section -->
+            <div class="container mt-4">
+                <h4 class="text-center fw-bold">RENCANA ANGGARAN BIAYA</h4>
+                <h5 class="text-center">RSUP DR. BEN MBOI KUPANG</h5>
+
+                <!-- Informasi Konfirmasi -->
+                <div class="row mt-4">
+                    <div class="col-6 text-start">
+                        <p class="fw-bold text-dark mb-1">Nama Kegiatan: ${data.namaKegiatan}</p>
+                        <p class="fw-bold text-dark mb-1">Ruangan: ${data.ruangan}</p>
+                        <p class="fw-bold text-dark mb-1">Jenis F1: ${data.jenisF1}</p>
+                        <p class="fw-bold text-dark mb-1">Cito: ${data.cito ? "Ya" : "Tidak"}</p>
+                    </div>
+                </div>
+
+                <h4 class="mt-4">Data Rincian:</h4>
+                <table class="table table-bordered mt-3">
+                    <thead class="table-primary text-center">
+                        <tr>
+                            <th>Rincian</th>
+                            <th>Kuantitas</th>
+                            <th>Satuan</th>
+                            <th>Biaya</th>
+                            <th>Jumlah</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${data.turunanData
+                          .map(
+                            (item) => `
+                                <tr>
+                                    <td>${item.rincian}</td>
+                                    <td class="text-center">${item.kuantitas}</td>
+                                    <td class="text-center">${item.satuan}</td>
+                                    <td class="text-end">Rp ${new Intl.NumberFormat("id-ID").format(item.biaya)}</td>
+                                    <td class="text-end">Rp ${new Intl.NumberFormat("id-ID").format(item.kuantitas * item.biaya)}</td>
+                                </tr>
+                                `
+                          )
+                          .join("")}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="text-end fw-bold">TOTAL</td>
+                            <td class="text-end fw-bold">Rp ${new Intl.NumberFormat("id-ID").format(data.turunanData.reduce((acc, item) => acc + item.kuantitas * item.biaya, 0))}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+      `;
+
+        data.turunanData.forEach((item) => {
+          let total = item.kuantitas * item.biaya;
+          totalBiaya += total;
+          totalKuantitas += parseInt(item.kuantitas);
+
+          validationContent += `
+      <tr>
+        <td>${item.rincian}</td>
+        <td>${item.kuantitas}</td>
+        <td>${item.satuan}</td>
+        <td>Rp ${new Intl.NumberFormat("id-ID").format(item.biaya)}</td>
+        <td>Rp ${new Intl.NumberFormat("id-ID").format(total)}</td>
+      </tr>
+    `;
+        });
+
+        validationContent += `
+      </tbody>
+    </table>
+    <p><strong>Total Biaya:</strong> Rp ${new Intl.NumberFormat("id-ID").format(totalBiaya)}</p>
+    <p><strong>File yang Di-upload:</strong></p>
+    <ul>
+  `;
+
+        uploadedFiles.forEach((file) => {
+          validationContent += `<li>${file}</li>`;
+        });
+
+        validationContent += `
+    </ul>
+    <button type="button" class="btn btn-primary" onclick="simpanData()">Simpan</button>
+    <button type="button" class="btn btn-secondary" onclick="kembaliEdit()">Kembali ke Edit</button>
+  </div>
+</div>
+`;
+
+        Swal.fire({
+          html: validationContent,
+          showCancelButton: false,
+          showConfirmButton: false,
+          width: "80%", // Lebar modal lebih besar
+          customClass: {
+            popup: "modal-xl", // Menambahkan kelas modal-xl untuk ukuran ekstra besar
+          },
+        });
+      }
+
+      function simpanData() {
+        // Proses simpan data setelah validasi
+        console.log("Data yang akan disimpan:", formData);
+        Swal.fire({
+          icon: "success",
+          title: "Berhasil!",
+          text: "Data telah disimpan.",
+          showConfirmButton: false,
+          timer: 2000,
+        }).then(() => {
+          // Reset form setelah disimpan
+          document.getElementById("formInput").reset();
+          document.getElementById("turunanContainer").innerHTML = "";
+          uploadedFiles = [];
+          let uploadContainer = document.getElementById("uploadContainer");
+          uploadContainer.style.display = "none";
+          if (window.uppy) {
+            window.uppy.cancelAll();
+            window.uppy.getFiles().forEach((file) => {
+              window.uppy.removeFile(file.id);
+            });
+            window.uppy = null;
+          }
+
+          // Menampilkan ulang file yang di-upload setelah data disimpan
+          let uploadedFilesContent = `
+        <p><strong>File yang telah di-upload:</strong></p>
+        <ul>
+      `;
+          uploadedFiles.forEach((file) => {
+            uploadedFilesContent += `<li>${file}</li>`;
+          });
+          uploadedFilesContent += `</ul>`;
+
+          document.getElementById("uploadedFilesContainer").innerHTML = uploadedFilesContent;
+
+          // Tetap di halaman yang sama
+          Swal.fire({
+            icon: "success",
+            title: "Data Disimpan",
+            text: "Form telah disimpan dan data file berhasil di-upload.",
+          });
+        });
+      }
+
+      function kembaliEdit() {
+        // Kembali untuk mengedit data
+        Swal.fire({
+          icon: "info",
+          title: "Kembali ke Edit",
+          text: "Silakan edit data Anda sebelum melanjutkan.",
+        });
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        window.toggleUploadBox = function () {
+          var checkUpload = document.getElementById("checkUpload");
+          var uploadBox = document.getElementById("uploadBox");
+          uploadBox.style.display = checkUpload.checked ? "block" : "none";
+        };
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const rows = document.querySelectorAll("tr");
+        rows.forEach((row) => {
+          const redDot = row.querySelector(".bg-danger");
+          if (redDot) {
+            row.classList.add("blinking");
+          }
+        });
+      });
+      function stopBlinking() {
+        const rows = document.querySelectorAll("tr.blinking");
+        rows.forEach((row) => {
+          row.classList.remove("blinking");
+        });
+      }
+    </script>
   </body>
 </html>

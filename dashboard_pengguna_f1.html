@@ -1,39 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="favicon.ico" />
     <title>Monitoring F1 RSUP Ben Mboi</title>
     <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="css/simplebar.css">
+    <link rel="stylesheet" href="css/simplebar.css" />
     <!-- Fonts CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
     <!-- Icons CSS -->
-    <link rel="stylesheet" href="css/feather.css">
-    <link rel="stylesheet" href="css/select2.css">
-    <link rel="stylesheet" href="css/dropzone.css">
-    <link rel="stylesheet" href="css/uppy.min.css">
-    <link rel="stylesheet" href="css/jquery.steps.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="css/quill.snow.css">
+    <link rel="stylesheet" href="css/feather.css" />
+    <link rel="stylesheet" href="css/select2.css" />
+    <link rel="stylesheet" href="css/dropzone.css" />
+    <link rel="stylesheet" href="css/uppy.min.css" />
+    <link rel="stylesheet" href="css/jquery.steps.css" />
+    <link rel="stylesheet" href="css/jquery.timepicker.css" />
+    <link rel="stylesheet" href="css/quill.snow.css" />
     <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="css/daterangepicker.css">
+    <link rel="stylesheet" href="css/daterangepicker.css" />
     <!-- App CSS -->
-    <link rel="stylesheet" href="css/app-light.css" id="lightTheme">
+    <link rel="stylesheet" href="css/app-light.css" id="lightTheme" />
+    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled />
   </head>
-  <body class="vertical  light  ">
+  <body class="vertical light">
     <div class="wrapper">
       <nav class="topnav navbar navbar-light">
         <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
           <i class="fe fe-menu navbar-toggler-icon"></i>
         </button>
         <form class="form-inline mr-auto searchform text-muted">
-          <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Cari Dokumen F1 " aria-label="Search">
+          <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" id="search" type="text" placeholder="Cari Dokumen F1 " aria-label="Search" onkeyup="cariDokumen()" />
         </form>
         <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
+              <i class="fe fe-sun fe-16"></i>
+            </a>
+          </li>
           <li class="nav-item nav-notif">
             <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
               <span class="fe fe-bell fe-16"></span>
@@ -43,8 +49,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="avatar avatar-sm mt-2">
-                <img src="./assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
-                <span class="ml-1 item-text">Lenny MC</span>
+                <img src="./assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle" />
+                <span class="ml-1 item-text">User Pengguna</span>
               </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
@@ -59,13 +65,11 @@
         </a>
         <nav class="vertnav navbar navbar-light">
           <!-- nav bar -->
-          
-            <div class="w-100 mb-4 d-flex">
-              <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="f1.html">
-                <img src="./assets/images/kemkes.png" alt="Logo" class="navbar-brand-img brand-sm">
-              </a>
-            </div>
-
+          <div class="w-100 mb-4 d-flex">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="dashboard_pengguna_f1.html">
+              <img src="./assets/images/kemkes.png" alt="Logo" class="navbar-brand-img brand-sm" />
+            </a>
+          </div>
           <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item">
               <a href="dashboard_pengguna_f1.html" class="nav-link">
@@ -73,32 +77,29 @@
                 <span class="ml-3 item-text">Dashboard</span>
               </a>
             </li>
-          </ul>                   
-          <p class="text-muted nav-heading mt-4 mb-1">
-            <span>Formulir F1 RSBM</span>
-          </p>
+          </ul>
           <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-              <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+            <li class="nav-item">
+              <a href="form_pengguna_f1.html" class="nav-link">
                 <i class="fe fe-credit-card fe-16"></i>
-                <span class="ml-3 item-text">Permintaan F1 RSBM</span>
+                <span class="ml-3 item-text">Form Permintaan F1</span>
               </a>
-              <ul class="collapse list-unstyled pl-4 w-100" id="forms">
-                <li class="nav-item">
-                  <a class="nav-link pl-3" href="form_pengguna_f1.html"><span class="ml-1 item-text">Form F1</span></a>
-                </li>
-              </ul>
             </li>
           </ul>
           <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item dropdown">
-              <a href="#profile" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+            <li class="nav-item">
+              <a href="verifikasi_pengguna_f1.html" class="nav-link">
+                <i class="fe fe-file-plus fe-16"></i>
+                <span class="ml-3 item-text">Lembar Monitoring F1</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item">
+              <a href="profil_user.html" class="nav-link">
                 <i class="fe fe-user fe-16"></i>
                 <span class="ml-3 item-text">Profile</span>
               </a>
-              <ul class="collapse list-unstyled pl-4 w-100" id="profile">
-                <a class="nav-link pl-3" href="profil_user.html"><span class="ml-1">Overview</span></a>
-              </ul>
             </li>
           </ul>
         </nav>
@@ -135,7 +136,7 @@
                           </span>
                         </div>
                         <div class="col pr-0">
-                          <p class="small  mb-0 text-white">Terealisasi</p>
+                          <p class="small mb-0 text-white">Terealisasi</p>
                           <span class="h3 mb-0 text-white">5</span>
                         </div>
                       </div>
@@ -152,7 +153,7 @@
                           </span>
                         </div>
                         <div class="col pr-0">
-                          <p class="small  mb-0 text-white">Proses</p>
+                          <p class="small mb-0 text-white">Proses</p>
                           <span class="h3 mb-0 text-white">3</span>
                         </div>
                       </div>
@@ -169,7 +170,7 @@
                           </span>
                         </div>
                         <div class="col pr-0">
-                          <p class="small  mb-0 text-dark">Jumlah Biaya Pengajuan</p>
+                          <p class="small mb-0 text-dark">Jumlah Biaya Pengajuan</p>
                           <span class="h3 mb-0 text-dark">3,542,091,001</span>
                         </div>
                       </div>
@@ -186,7 +187,7 @@
                           </span>
                         </div>
                         <div class="col pr-0">
-                          <p class="small  mb-0 text-white">F1 Cito</p>
+                          <p class="small mb-0 text-white">F1 Cito</p>
                           <span class="h3 mb-0 text-white">2</span>
                         </div>
                       </div>
@@ -203,7 +204,7 @@
                           </span>
                         </div>
                         <div class="col pr-0">
-                          <p class="small  mb-0 text-white">Ditolak</p>
+                          <p class="small mb-0 text-white">Ditolak</p>
                           <span class="h3 mb-0 text-white">2</span>
                         </div>
                       </div>
@@ -220,7 +221,7 @@
                           </span>
                         </div>
                         <div class="col pr-0">
-                          <p class="small  mb-0 text-white">Dipending</p>
+                          <p class="small mb-0 text-white">Dipending</p>
                           <span class="h3 mb-0 text-white">1</span>
                         </div>
                       </div>
@@ -237,19 +238,20 @@
                           </span>
                         </div>
                         <div class="col pr-0">
-                          <p class="small  mb-0 text-white">Jumlah Real Pembelanjaan</p>
+                          <p class="small mb-0 text-white">Jumlah Real Pembelanjaan</p>
                           <span class="h3 mb-0 text-white">2,542,091,001</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div> <!-- end section -->
+              </div>
+              <!-- end section -->
             </div>
             <div class="col-12">
               <h2 class="h3 mb-3 page-title">Monitoring F1</h2>
               <!-- Slide Modal -->
-              <table class="table border table-bordered table-hover bg-white">
+              <table class="table border table-bordered table-hover bg-white" id="dataTable">
                 <thead>
                   <tr role="row">
                     <th class="text-center text-dark">No</th>
@@ -263,264 +265,327 @@
                     <th class="text-center text-dark">PPSPM</th>
                     <th class="text-center text-dark">Bendahara</th>
                     <th class="text-center text-dark">Status</th>
-                    <th class="text-center text-dark">Action</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="daftarDokumen">
                   <tr>
                     <td class="text-center">1</td>
                     <td class="text-center">Pembelian Lampu 120 Biji</td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <span class="dot dot-lg bg-success mr-2"></span> 
-                      <p class="small  mb-0 text-dark">Terealisasi</p></td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-sm dropdown-toggle more-vertical" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="text-muted sr-only">Action</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item" href="lembar_pengguna_rab.html">Lembar RAB</a>
-                          <a class="dropdown-item" href="lembar_monitoring_pengguna_f1.html">Lembar Monitoring F1</a>
-                        </div>
-                      </div>
+                      <span class="dot dot-lg bg-success mr-2"></span>
+                      <p class="small mb-0 text-dark">Terealisasi</p>
                     </td>
                   </tr>
                   <tr>
                     <td class="text-center">2</td>
                     <td class="text-center">Pembelian Router Wifi</td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-clock text-warning" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Diajukan</p>
+                      <i class="fe fe-clock text-warning" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Diajukan</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-clock text-warning" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Diajukan</p>
+                      <i class="fe fe-clock text-warning" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Diajukan</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-clock text-warning" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Diajukan</p>
+                      <i class="fe fe-clock text-warning" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Diajukan</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-clock text-warning" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Diajukan</p>
+                      <i class="fe fe-clock text-warning" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Diajukan</p>
                     </td>
                     <td class="text-center">
-                    <i class="fe fe-clock text-warning" style=" stroke-width: 2;"></i>
-                    <p class="small  mb-0 text-dark">Diajukan</p>
+                      <i class="fe fe-clock text-warning" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Diajukan</p>
                     </td>
                     <td class="text-center">
-                    <i class="fe fe-clock text-warning" style=" stroke-width: 2;"></i>
-                    <p class="small  mb-0 text-dark">Diajukan</p>
+                      <i class="fe fe-clock text-warning" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Diajukan</p>
                     </td>
                     <td class="text-center">
                       <span class="dot dot-lg bg-warning mr-2"></span>
-                      <p class="small  mb-0 text-dark">Proses</p>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-sm dropdown-toggle more-vertical" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="text-muted sr-only">Action</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item" href="lembar_pengguna_rab.html">Lembar RAB</a>
-                          <a class="dropdown-item" href="lembar_monitoring_pengguna_f1.html">Lembar Monitoring F1</a>
-                        </div>
-                      </div>
+                      <p class="small mb-0 text-dark">Proses</p>
                     </td>
                   </tr>
                   <tr>
                     <td class="text-center">3</td>
-                    <td class="text-center">Pembelian Linen </td>
+                    <td class="text-center">Pembelian Linen</td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-minus" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Cito</p>
+                      <i class="fe fe-minus" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Cito</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-minus" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Cito</p>
+                      <i class="fe fe-minus" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Cito</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-minus" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Cito</p>
+                      <i class="fe fe-minus" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Cito</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-minus" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Cito</p>
+                      <i class="fe fe-minus" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Cito</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
                       <span class="dot dot-lg bg-danger mr-2"></span>
-                      <p class="small  mb-0 text-dark">F1 Cito</p>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-sm dropdown-toggle more-vertical" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="text-muted sr-only">Action</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item" href="lembar_pengguna_rab.html">Lembar RAB</a>
-                          <a class="dropdown-item" href="lembar_monitoring_pengguna_f1.html">Lembar Monitoring F1</a>
-                        </div>
-                      </div>
+                      <p class="small mb-0 text-dark">F1 Cito</p>
                     </td>
                   </tr>
-                  
                   <tr>
                     <td class="text-center">4</td>
                     <td class="text-center">Pembelian Air</td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                    <i class="fe fe-x-square  text-danger" style="stroke-width: 2;"></i>
-                    <p class="small  mb-0 text-dark">Ditolak</p>
+                      <i class="fe fe-x-square text-danger" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Ditolak</p>
                     </td>
                     <td class="text-center">
-                    <i class="fe fe-x-square text-danger" style="stroke-width: 2;"></i>
-                    <p class="small  mb-0 text-dark">Ditolak</p>
+                      <i class="fe fe-x-square text-danger" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Ditolak</p>
                     </td>
                     <td class="text-center">
-                    <i class="fe fe-x-square text-danger" style="stroke-width: 2;"></i>
-                    <p class="small  mb-0 text-dark">Ditolak</p>
+                      <i class="fe fe-x-square text-danger" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Ditolak</p>
                     </td>
                     <td class="text-center">
                       <span class="dot dot-lg bg-dark mr-2"></span>
-                      <p class="small  mb-0 text-dark">Ditolak</p>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-sm dropdown-toggle more-vertical" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="text-muted sr-only">Action</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item" href="lembar_pengguna_rab.html">Lembar RAB</a>
-                          <a class="dropdown-item" href="lembar_monitoring_pengguna_f1.html">Lembar Monitoring F1</a>
-                        </div>
-                      </div>
+                      <p class="small mb-0 text-dark">Ditolak</p>
                     </td>
                   </tr>
-
                   <tr>
                     <td class="text-center">5</td>
                     <td class="text-center">Pembelian Sabun Cuci</td>
                     <td class="text-center">
-                      <i class="fe fe-check-square text-success" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Disetujui</p>
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Pending</p>
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Pending</p>
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Pending</p>
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
                     </td>
                     <td class="text-center">
-                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2;"></i>
-                      <p class="small  mb-0 text-dark">Pending</p>
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
                     </td>
                     <td class="text-center">
-                    <i class="fe fe-alert-triangle  text-dark" style="stroke-width: 2;"></i>
-                    <p class="small  mb-0 text-dark">Pending</p>
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
                     </td>
                     <td class="text-center">
-                    <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2;"></i>
-                    <p class="small  mb-0 text-dark">Pending</p>
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
                     </td>
                     <td class="text-center">
-                    <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2;"></i>
-                    <p class="small  mb-0 text-dark">Pending</p>
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
                     </td>
                     <td class="text-center">
                       <span class="dot dot-lg bg-secondary mr-2"></span>
-                      <p class="small  mb-0 text-dark">Pending</p>
+                      <p class="small mb-0 text-dark">Pending</p>
                     </td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-sm dropdown-toggle more-vertical" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="text-muted sr-only">Action</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item" href="lembar_pengguna_rab.html">Lembar RAB</a>
-                          <a class="dropdown-item" href="lembar_monitoring_pengguna_f1.html">Lembar Monitoring F1</a>
-                        </div>
-                      </div>
+                  </tr>
+                  <tr>
+                    <td class="text-center">6</td>
+                    <td class="text-center">Pembelian Alat Medis</td>
+                    <td class="text-center">
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <span class="dot dot-lg bg-secondary mr-2"></span>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">7</td>
+                    <td class="text-center">Pembelian Reagen Lab</td>
+                    <td class="text-center">
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <span class="dot dot-lg bg-secondary mr-2"></span>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">8</td>
+                    <td class="text-center">Pembelian Kertas A3</td>
+                    <td class="text-center">
+                      <i class="fe fe-check-square text-success" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Disetujui</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <i class="fe fe-alert-triangle text-dark" style="stroke-width: 2"></i>
+                      <p class="small mb-0 text-dark">Pending</p>
+                    </td>
+                    <td class="text-center">
+                      <span class="dot dot-lg bg-secondary mr-2"></span>
+                      <p class="small mb-0 text-dark">Pending</p>
                     </td>
                   </tr>
                 </tbody>
@@ -535,8 +600,10 @@
                 </ul>
               </nav>
             </div>
-          </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- .container-fluid -->
         <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -570,7 +637,8 @@
                         <small><strong>Pembelian Linen</strong></small>
                         <small class="badge badge-pill badge-light text-muted">1 Jam yang Lalu</small>
                       </div>
-                    </div> <!-- / .row -->
+                    </div>
+                    <!-- / .row -->
                   </div>
                   <div class="list-group-item bg-transparent">
                     <div class="row align-items-center">
@@ -579,8 +647,10 @@
                         <small class="badge badge-pill badge-light text-muted">1 Hari yang Lalu</small>
                       </div>
                     </div>
-                  </div> <!-- / .row -->
-                </div> <!-- / .list-group -->
+                  </div>
+                  <!-- / .row -->
+                </div>
+                <!-- / .list-group -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Hapus</button>
@@ -588,15 +658,17 @@
             </div>
           </div>
         </div>
-      </main> <!-- main -->
-    </div> <!-- .wrapper -->
+      </main>
+      <!-- main -->
+    </div>
+    <!-- .wrapper -->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/moment.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/simplebar.min.js"></script>
-    <script src='js/daterangepicker.js'></script>
-    <script src='js/jquery.stickOnScroll.js'></script>
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/jquery.stickOnScroll.js"></script>
     <script src="js/tinycolor-min.js"></script>
     <script src="js/config.js"></script>
     <script src="js/d3.min.js"></script>
@@ -614,128 +686,139 @@
     <script src="js/jquery.sparkline.min.js"></script>
     <script src="js/apexcharts.min.js"></script>
     <script src="js/apexcharts.custom.js"></script>
-    <script src='js/jquery.mask.min.js'></script>
-    <script src='js/select2.min.js'></script>
-    <script src='js/jquery.steps.min.js'></script>
-    <script src='js/jquery.validate.min.js'></script>
-    <script src='js/jquery.timepicker.js'></script>
-    <script src='js/dropzone.min.js'></script>
-    <script src='js/uppy.min.js'></script>
-    <script src='js/quill.min.js'></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/jquery.steps.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.timepicker.js"></script>
+    <script src="js/dropzone.min.js"></script>
+    <script src="js/uppy.min.js"></script>
+    <script src="js/quill.min.js"></script>
     <script src="js/apps.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
 
-      function gtag()
-      {
+      function gtag() {
         dataLayer.push(arguments);
       }
-      gtag('js', new Date());
-      gtag('config', 'UA-56159088-1');
+      gtag("js", new Date());
+      gtag("config", "UA-56159088-1");
     </script>
     <script>
       setInterval(() => {
-        const dot = document.querySelector('.dot');
+        const dot = document.querySelector(".dot");
         if (dot) {
-          dot.style.visibility = dot.style.visibility === 'hidden' ? 'visible' : 'hidden';
+          dot.style.visibility = dot.style.visibility === "hidden" ? "visible" : "hidden";
         }
       }, 500); // Berkedip setiap 0.5 detik
     </script>
-       <script>
-        function formatRupiah(input) {
-          let value = input.value.replace(/[^0-9]/g, "");
-          if (value) {
-            input.value = "Rp " + new Intl.NumberFormat("id-ID").format(value);
-          } else {
-            input.value = "";
-          }
-        }
-      
-        function tambahData() {
-          var nama = document.getElementById("inputNama").value;
-          var formulir = document.getElementById("inputState").value;
-          var ruangan = document.getElementById("inputRuangan").value;
-          var jenis = document.getElementById("inputJenis").value;
-          var jumlah = document.getElementById("inputJumlah").value;
-          var harga = document.getElementById("inputHarga").value;
-          var cito = "Tidak";  // Secara default "Tidak", bisa diubah jika checkbox "Cito" dicentang
-      
-          if (nama === "" || formulir === "Pilihan..." || ruangan === "Pilihan..." || jenis === "" || jumlah === "" || harga === "") {
-            alert("Mohon isi semua field sebelum menambahkan data.");
-            return;
-          }
-      
-          var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
-          var baris = tabel.insertRow();
-          baris.innerHTML = `<td>${nama}</td><td>${formulir}</td><td>${ruangan}</td><td>${jenis}</td><td>${jumlah}</td><td>${harga}</td><td>${cito}</td><td><button class='btn btn-danger btn-sm' onclick='hapusBaris(this)'>Hapus</button></td>`;
-          
-          document.getElementById("permintaanForm").reset();
-        }
-      
-        function hapusBaris(button) {
-          var baris = button.parentNode.parentNode;
-          baris.parentNode.removeChild(baris);
-        }
-      
-        function toggleCito() {
-          var isCito = document.getElementById("checkCito").checked;
-          var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
-      
-          for (var i = 0; i < tabel.rows.length; i++) {
-            var row = tabel.rows[i];
-            row.cells[6].innerText = isCito ? "Cito" : "Tidak";
-          }
-        }
-      
-        function simpanData() {
-          var tabel = document.getElementById("tabelPermintaan").getElementsByTagName('tbody')[0];
-          if (tabel.rows.length === 0) {
-            alert("Tidak ada data untuk disimpan.");
-            return;
-          }
-          
-          var data = [];
-          for (var i = 0; i < tabel.rows.length; i++) {
-            var row = tabel.rows[i];
-            var item = {
-              nama: row.cells[0].innerText,
-              formulir: row.cells[1].innerText,
-              ruangan: row.cells[2].innerText,
-              jenis: row.cells[3].innerText,
-              jumlah: row.cells[4].innerText,
-              harga: row.cells[5].innerText,
-              cito: row.cells[6].innerText
-            };
-            data.push(item);
-          }
-          console.log("Data yang akan disimpan:", data);
-          alert("Data berhasil disimpan (lihat console untuk hasil).");
-        }
-      </script>
-      <script>document.addEventListener('DOMContentLoaded', function() {
+
+    <!-- Cito Dokument -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
         // Cari semua elemen tr di halaman
-        const rows = document.querySelectorAll('tr');
-      
-        rows.forEach(row => {
+        const rows = document.querySelectorAll("tr");
+
+        rows.forEach((row) => {
           // Cari elemen span dengan kelas bg-danger dalam baris ini
-          const redDot = row.querySelector('.bg-danger');
-      
+          const redDot = row.querySelector(".bg-danger");
+
           if (redDot) {
             // Jika ada elemen .bg-danger, tambahkan kelas blinking pada <tr>
-            row.classList.add('blinking');
+            row.classList.add("blinking");
           }
         });
       });
-      
       // Fungsi untuk menghentikan kedip (opsional)
       function stopBlinking() {
-        const rows = document.querySelectorAll('tr.blinking');
-        rows.forEach(row => {
-          row.classList.remove('blinking');
+        const rows = document.querySelectorAll("tr.blinking");
+        rows.forEach((row) => {
+          row.classList.remove("blinking");
         });
       }
-      </script>
+    </script>
+
+    <!-- Pencarian Dokument -->
+    <script>
+      function cariDokumen() {
+        let input = document.getElementById("search").value.toLowerCase();
+        let rows = document.getElementById("daftarDokumen").getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+          let text = rows[i].innerText.toLowerCase();
+          if (text.includes(input)) {
+            rows[i].style.display = "";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    </script>
+
+    <!-- Pagination table -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let table = document.getElementById("dataTable");
+        let rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+        let rowsPerPage = 5;
+        let currentPage = 1;
+        let totalPages = Math.ceil(rows.length / rowsPerPage);
+
+        function showPage(page) {
+          let start = (page - 1) * rowsPerPage;
+          let end = start + rowsPerPage;
+
+          for (let i = 0; i < rows.length; i++) {
+            rows[i].style.display = i >= start && i < end ? "" : "none";
+          }
+        }
+
+        function createPagination() {
+          let pagination = document.querySelector(".pagination");
+          pagination.innerHTML = "";
+
+          let prev = document.createElement("li");
+          prev.className = "page-item";
+          prev.innerHTML = `<a class="page-link" href="#">Previous</a>`;
+          prev.onclick = function () {
+            if (currentPage > 1) {
+              currentPage--;
+              showPage(currentPage);
+              createPagination();
+            }
+          };
+          pagination.appendChild(prev);
+
+          for (let i = 1; i <= totalPages; i++) {
+            let li = document.createElement("li");
+            li.className = `page-item ${i === currentPage ? "active" : ""}`;
+            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+            li.onclick = function () {
+              currentPage = i;
+              showPage(currentPage);
+              createPagination();
+            };
+            pagination.appendChild(li);
+          }
+
+          let next = document.createElement("li");
+          next.className = "page-item";
+          next.innerHTML = `<a class="page-link" href="#">Next</a>`;
+          next.onclick = function () {
+            if (currentPage < totalPages) {
+              currentPage++;
+              showPage(currentPage);
+              createPagination();
+            }
+          };
+          pagination.appendChild(next);
+        }
+
+        showPage(currentPage);
+        createPagination();
+      });
+    </script>
   </body>
 </html>
