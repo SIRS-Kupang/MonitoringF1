@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/daterangepicker.css" />
     <!-- App CSS -->
     <link rel="stylesheet" href="css/app-light.css" id="lightTheme" />
+    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled />
   </head>
   <body class="vertical light">
     <div class="wrapper">
@@ -31,9 +32,14 @@
           <i class="fe fe-menu navbar-toggler-icon"></i>
         </button>
         <form class="form-inline mr-auto searchform text-muted">
-          <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Cari Dokumen F1 " aria-label="Search" />
+          <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" id="search" type="text" placeholder="Cari Dokumen F1 " aria-label="Search" onkeyup="cariDokumen()" />
         </form>
         <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
+              <i class="fe fe-sun fe-16"></i>
+            </a>
+          </li>
           <li class="nav-item nav-notif">
             <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
               <span class="fe fe-bell fe-16"></span>
@@ -82,9 +88,9 @@
           </ul>
           <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item">
-              <a href="verivikasi_pengguna_f1.html" class="nav-link">
+              <a href="verifikasi_pengguna_f1.html" class="nav-link">
                 <i class="fe fe-file-plus fe-16"></i>
-                <span class="ml-3 item-text">Validasi Permintaan F1</span>
+                <span class="ml-3 item-text">Lembar Monitoring F1</span>
               </a>
             </li>
           </ul>
