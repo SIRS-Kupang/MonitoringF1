@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="favicon.ico" />
+    <title>Monitoring F1 RSUP Ben Mboi</title>
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" href="css/simplebar.css" />
+    <!-- Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="css/feather.css" />
+    <link rel="stylesheet" href="css/select2.css" />
+    <link rel="stylesheet" href="css/dropzone.css" />
+    <link rel="stylesheet" href="css/uppy.min.css" />
+    <link rel="stylesheet" href="css/jquery.steps.css" />
+    <link rel="stylesheet" href="css/jquery.timepicker.css" />
+    <link rel="stylesheet" href="css/quill.snow.css" />
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="css/daterangepicker.css" />
+    <!-- App CSS -->
+    <link rel="stylesheet" href="css/app-light.css" id="lightTheme" />
+    <link rel="stylesheet" href="css/app-dark.css" id="darkTheme" disabled />
+  </head>
+  <body class="vertical light">
+    <div class="wrapper">
+      <nav class="topnav navbar navbar-light">
+        <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
+          <i class="fe fe-menu navbar-toggler-icon"></i>
+        </button>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
+              <i class="fe fe-sun fe-16"></i>
+            </a>
+          </li>
+          <li class="nav-item nav-notif">
+            <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
+              <span class="fe fe-bell fe-16"></span>
+              <span class="dot dot-md bg-success"></span>
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="avatar avatar-sm mt-2">
+                <img src="./assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle" />
+                <span class="ml-1 item-text">User Pengguna</span>
+              </span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Log Out</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
+        <a href="#" class="btn collapseSidebar toggle-btn d-lg-none text-muted ml-2 mt-3" data-toggle="toggle">
+          <i class="fe fe-x"><span class="sr-only"></span></i>
+        </a>
+        <nav class="vertnav navbar navbar-light">
+          <!-- nav bar -->
+          <div class="w-100 mb-4 d-flex">
+            <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="dashboard_pengguna_f1.html">
+              <img src="./assets/images/kemkes.png" alt="Logo" class="navbar-brand-img brand-sm" />
+            </a>
+          </div>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item">
+              <a href="dashboard_pengguna_f1.html" class="nav-link">
+                <i class="fe fe-home fe-16"></i>
+                <span class="ml-3 item-text">Dashboard</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item">
+              <a href="lembar_verifikasi_verif_f1.html" class="nav-link">
+                <i class="fe fe-file-plus fe-16"></i>
+                <span class="ml-3 item-text">Lembar Monitoring F1</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav flex-fill w-100 mb-2">
+            <li class="nav-item">
+              <a href="profil_user.html" class="nav-link">
+                <i class="fe fe-user fe-16"></i>
+                <span class="ml-3 item-text">Profile</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main role="main" class="main-content">
+        <div class="container-fluid mt-4">
+          <div class="row justify-content-center">
+            <div class="col-12 col-lg-10 col-xl-12">
+              <div class="row align-items-center mb-4"></div>
+              <div class="card shadow">
+                <div class="card-body p-5">
+                  <div class="text-center mb-4">
+                    <img src="./assets/images/logo-kemenkes.png" alt="Kemenkes Logo" class="img-fluid" style="max-width: 100%; height: auto" />
+                  </div>
+                  <h4 class="text-center mb-4">LEMBAR MONITORING NON MEDIS</h4>
+                  <table class="table table-bordered">
+                    <thead class="table-primary text-center">
+                      <tr>
+                        <th class="font-weight-bold text-dark">No</th>
+                        <th class="font-weight-bold text-dark">Profesi</th>
+                        <th class="font-weight-bold text-dark">Tanggal</th>
+                        <th class="font-weight-bold text-dark">Keterangan</th>
+                        <th class="font-weight-bold text-dark">Action</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>USER (MANAGER/KA.INS)</td>
+                        <td>20-01-2025 23:59:59</td>
+                        <td>Pembelian Lampu 120 Biji</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>VERIFIKATOR I NON MEDIS (MANAGER TU-RT)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>VERIFIKATOR II (DIREKTUR PKLO)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>PERENCANAAN ANGGARAN</td>
+                        <td></td>
+                        <td>
+                          <b>Sumber Dana:</b>
+                          <input type="checkbox" /> PNBP <input type="checkbox" /> Rupiah Murni
+                          <br />
+                          <b>Ketersediaan Dana:</b>
+                          <input type="checkbox" /> Tersedia <input type="checkbox" /> Tidak Tersedia
+                          <br />
+                          <b>MAK:</b>
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>KPA</td>
+                        <td></td>
+                        <td>
+                          <b>Setuju:</b> <input type="checkbox" /> <b>Tidak Setuju:</b> <input type="checkbox" />
+                          <br />
+                          <b>Catatan:</b>
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>6</td>
+                        <td>PPK/PP</td>
+                        <td></td>
+                        <td>
+                          <b>Metode Pengadaan:</b>
+                          <br />
+                          <input type="checkbox" /> E-Purchasing
+                          <br />
+                          <input type="checkbox" /> Pengadaan Langsung
+                          <br />
+                          <input type="checkbox" /> Penunjukan Langsung
+                          <br />
+                          <input type="checkbox" /> Tender/Lelang <br />
+                        </td>
+                        <td>
+                          <div class="d-flex justify-content-center gap-3">
+                            <button type="button" class="btn mb-2 btn-primary" data-toggle="modal" data-target="#varyModal">Verifikasi</button>
+                          </div>
+                          <div class="modal fade" id="varyModal" tabindex="-1" role="dialog" aria-labelledby="varyModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="varyModalLabel">Aprovel Permintaan F1</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <form>
+                                    <div class="form-group">
+                                      <b>Metode Pengadaan:</b>
+                                      <br />
+                                      <input type="checkbox" /> E-Purchasing
+                                      <br />
+                                      <input type="checkbox" /> Pengadaan Langsung
+                                      <br />
+                                      <input type="checkbox" /> Penunjukan Langsung
+                                      <br />
+                                      <input type="checkbox" /> Tender/Lelang
+                                      <br />
+                                    </div>
+                                  </form>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn mb-2 btn-secondary" data-dismiss="modal">Tutup</button>
+                                  <button type="button" class="btn mb-2 btn-primary">Kirim</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>7</td>
+                        <td>VERIFIKASI PERBENDAHARAAN</td>
+                        <td></td>
+                        <td>
+                          <b>Verifikasi Dokomen</b>
+                          <br />
+                          <b>Lengkap:</b> <input type="checkbox" /> <b>Tidak Lengkap:</b> <input type="checkbox" />
+                          <br />
+                          <b>Catatan:</b>
+                        </td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>8</td>
+                        <td>PPSPM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>9</td>
+                        <td>BENDAHARA</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="mt-3 text-left">
+                    <b>Catatan:</b>
+                    <ol class="small">
+                      <li>Menulis dengan huruf kapital yang mudah dibaca.</li>
+                      <li>Atasan langsung wajib memberikan justifikasi pada kolom keterangan.</li>
+                      <li>Apabila KPA setuju maka berkas akan lanjut, jika KPA tidak setuju maka akan dikembalikan ke bagian anggaran untuk data realisasi pagunya dan berkas akan dikembalikan ke user.</li>
+                      <li>Apabila KPA setuju maka berkas akan lanjut, jika KPA tidak setuju maka akan dikembalikan ke bagian anggaran.</li>
+                    </ol>
+                  </div>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col-12 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- .container-fluid -->
+        <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="defaultModalLabel">Notifikasi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="list-group list-group-flush my-n3">
+                  <div class="list-group-item bg-transparent">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <small><strong>Pembelian Lampu 120 Biji</strong></small>
+                        <small class="badge badge-pill badge-light text-muted">Baru Saja</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-group-item bg-transparent">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <small><strong>Pembelian Router Wifi</strong></small>
+                        <small class="badge badge-pill badge-light text-muted">25 Menit yang lalu </small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-group-item bg-transparent">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <small><strong>Pembelian Linen</strong></small>
+                        <small class="badge badge-pill badge-light text-muted">1 Jam yang Lalu</small>
+                      </div>
+                    </div>
+                    <!-- / .row -->
+                  </div>
+                  <div class="list-group-item bg-transparent">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <small><strong>Pembelian Air Minum</strong></small>
+                        <small class="badge badge-pill badge-light text-muted">1 Hari yang Lalu</small>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- / .row -->
+                </div>
+                <!-- / .list-group -->
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Hapus</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- main -->
+    </div>
+    <!-- .wrapper -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/simplebar.min.js"></script>
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/jquery.stickOnScroll.js"></script>
+    <script src="js/tinycolor-min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/topojson.min.js"></script>
+    <script src="js/datamaps.all.min.js"></script>
+    <script src="js/datamaps-zoomto.js"></script>
+    <script src="js/datamaps.custom.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script>
+      /* defind global options */
+      Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
+      Chart.defaults.global.defaultFontColor = colors.mutedColor;
+    </script>
+    <script src="js/gauge.min.js"></script>
+    <script src="js/jquery.sparkline.min.js"></script>
+    <script src="js/apexcharts.min.js"></script>
+    <script src="js/apexcharts.custom.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/select2.min.js"></script>
+    <script src="js/jquery.steps.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.timepicker.js"></script>
+    <script src="js/dropzone.min.js"></script>
+    <script src="js/uppy.min.js"></script>
+    <script src="js/quill.min.js"></script>
+    <script src="js/apps.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-56159088-1");
+    </script>
+    <script>
+      setInterval(() => {
+        const dot = document.querySelector(".dot");
+        if (dot) {
+          dot.style.visibility = dot.style.visibility === "hidden" ? "visible" : "hidden";
+        }
+      }, 500); // Berkedip setiap 0.5 detik
+    </script>
+    <script>
+      function formatRupiah(input) {
+        let value = input.value.replace(/[^0-9]/g, "");
+        if (value) {
+          input.value = "Rp " + new Intl.NumberFormat("id-ID").format(value);
+        } else {
+          input.value = "";
+        }
+      }
+
+      function tambahData() {
+        var nama = document.getElementById("inputNama").value;
+        var formulir = document.getElementById("inputState").value;
+        var ruangan = document.getElementById("inputRuangan").value;
+        var jenis = document.getElementById("inputJenis").value;
+        var jumlah = document.getElementById("inputJumlah").value;
+        var harga = document.getElementById("inputHarga").value;
+        var cito = "Tidak"; // Secara default "Tidak", bisa diubah jika checkbox "Cito" dicentang
+
+        if (nama === "" || formulir === "Pilihan..." || ruangan === "Pilihan..." || jenis === "" || jumlah === "" || harga === "") {
+          alert("Mohon isi semua field sebelum menambahkan data.");
+          return;
+        }
+
+        var tabel = document.getElementById("tabelPermintaan").getElementsByTagName("tbody")[0];
+        var baris = tabel.insertRow();
+        baris.innerHTML = `<td>${nama}</td><td>${formulir}</td><td>${ruangan}</td><td>${jenis}</td><td>${jumlah}</td><td>${harga}</td><td>${cito}</td><td><button class='btn btn-danger btn-sm' onclick='hapusBaris(this)'>Hapus</button></td>`;
+
+        document.getElementById("permintaanForm").reset();
+      }
+
+      function hapusBaris(button) {
+        var baris = button.parentNode.parentNode;
+        baris.parentNode.removeChild(baris);
+      }
+
+      function toggleCito() {
+        var isCito = document.getElementById("checkCito").checked;
+        var tabel = document.getElementById("tabelPermintaan").getElementsByTagName("tbody")[0];
+
+        for (var i = 0; i < tabel.rows.length; i++) {
+          var row = tabel.rows[i];
+          row.cells[6].innerText = isCito ? "Cito" : "Tidak";
+        }
+      }
+
+      function simpanData() {
+        var tabel = document.getElementById("tabelPermintaan").getElementsByTagName("tbody")[0];
+        if (tabel.rows.length === 0) {
+          alert("Tidak ada data untuk disimpan.");
+          return;
+        }
+
+        var data = [];
+        for (var i = 0; i < tabel.rows.length; i++) {
+          var row = tabel.rows[i];
+          var item = {
+            nama: row.cells[0].innerText,
+            formulir: row.cells[1].innerText,
+            ruangan: row.cells[2].innerText,
+            jenis: row.cells[3].innerText,
+            jumlah: row.cells[4].innerText,
+            harga: row.cells[5].innerText,
+            cito: row.cells[6].innerText,
+          };
+          data.push(item);
+        }
+        console.log("Data yang akan disimpan:", data);
+        alert("Data berhasil disimpan (lihat console untuk hasil).");
+      }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Cari semua elemen tr di halaman
+        const rows = document.querySelectorAll("tr");
+
+        rows.forEach((row) => {
+          // Cari elemen span dengan kelas bg-danger dalam baris ini
+          const redDot = row.querySelector(".bg-danger");
+
+          if (redDot) {
+            // Jika ada elemen .bg-danger, tambahkan kelas blinking pada <tr>
+            row.classList.add("blinking");
+          }
+        });
+      });
+
+      // Fungsi untuk menghentikan kedip (opsional)
+      function stopBlinking() {
+        const rows = document.querySelectorAll("tr.blinking");
+        rows.forEach((row) => {
+          row.classList.remove("blinking");
+        });
+      }
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".btn-primary").forEach((button) => {
+          button.addEventListener("click", function () {
+            let row = this.closest("tr");
+            let modal = document.getElementById("varyModal");
+            let checkboxes = modal.querySelectorAll("input[type='checkbox']");
+            let submitButton = modal.querySelector(".modal-footer .btn-primary");
+
+            submitButton.onclick = function () {
+              let verificationCell = row.cells[3];
+              let timestampCell = row.cells[2]; // Menambahkan timestamp di kolom ketiga
+              verificationCell.innerHTML = "";
+
+              let selectedMethods = "<b>Metode Pengadaan:</b><br>";
+              let anyChecked = false;
+
+              checkboxes.forEach((checkbox, index) => {
+                let label = checkbox.nextSibling.textContent.trim();
+                if (checkbox.checked) {
+                  anyChecked = true;
+                  selectedMethods += `<label class='checkbox-label'><input type='checkbox' checked disabled> ${label}</label><br>`;
+                } else {
+                  selectedMethods += `<label class='checkbox-label'><input type='checkbox' disabled> ${label}</label><br>`;
+                }
+              });
+
+              verificationCell.innerHTML = selectedMethods;
+
+              let timestamp = new Date().toLocaleString(); // Mendapatkan timestamp saat ini
+              timestampCell.innerHTML = `${timestamp}`;
+
+              $("#varyModal").modal("hide");
+
+              Swal.fire({
+                title: "Berhasil!",
+                text: "Verifikasi telah dilakukan.",
+                icon: "success",
+                confirmButtonText: "OK",
+              });
+            };
+          });
+        });
+
+        let style = document.createElement("style");
+        style.innerHTML = `
+        .checkbox-label {
+            display: inline-block;
+        }
+        .checkbox-label input[type="checkbox"] {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            border: 2px solid #ccc;
+            display: inline-block;
+            position: relative;
+            vertical-align: middle;
+            cursor: not-allowed;
+            background-color: #f8f9fa;
+        }
+        
+        .checkbox-label input[type="checkbox"]:checked {
+            background-color: #007bff !important;
+            border-color: #007bff !important;
+        }
+        
+        .checkbox-label input[type="checkbox"]:checked::after {
+            content: "✔";
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    `;
+        document.head.appendChild(style);
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
